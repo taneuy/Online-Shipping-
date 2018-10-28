@@ -2,14 +2,22 @@
 
 # About
 
-Project ระบบส่งของออนไลน์
-Basic Spring-boot and Angular6
+#Project ระบบส่งของออนไลน์
+#Basic Spring-boot and Angular6
 
 #การใช้งาน
+
 clone project ลงเครื่อง => git clone https://github.com/taneuy/sa-project-61-1-merge-all-project-.git
 
+
 Folder Server
+
 	.\mvnw spring-boot:run
+
+
 Folder Client
+
+
 	npm install
+
 	ng serve
