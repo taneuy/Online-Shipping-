@@ -14,7 +14,9 @@ Basic Spring-boot and Angular6
 Folder Server
 
 	.\mvnw spring-boot:run
-
+ เปิด web browser
+ 
+ 	localhost:8080/
 
 Folder Client
 
@@ -22,3 +24,6 @@ Folder Client
 	npm install
 
 	ng serve
+ เปิด web browser
+ 
+ 	localhost:4200/
