@@ -7,7 +7,7 @@
 
 #การใช้งาน
 
-clone project ลงเครื่อง => git clone https://github.com/taneuy/sa-project-61-1-merge-all-project-.git
+	git clone https://github.com/taneuy/sa-project-61-1-merge-all-project-.git
 
 
 Folder Server
