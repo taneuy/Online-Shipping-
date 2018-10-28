@@ -1,0 +1,39 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+    <a mat-stroked-button routerLink='/taxi-view'>View Taxi Order</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+    <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Taxi Service</h1>
+      <img width="200"  src="src/image/taxi.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+  <mat-card-content style="text-align:left">
+    <h1 style="text-align:center">รายละเอียดการจัดส่ง</h1>
+    <p><b>ชื่อผู้รับ :</b> {{data.username}}</p>
+    <p><b>เขตพื้นที่ :</b>{{data.areas}}</p>
+    <p><b>จุดเริ่มต้น :</b>{{data.Location1}}</p>
+    <p><b>จุดปลายทาง :</b>{{data.Location2}}</p>
+    <p><b>ที่นั่งรถ :</b>{{data.carservices}}</p>
+    <p><b>หมายเหตุ :</b> {{data.note}}</p>
+    <h2>ราคา</h2>
+    <p>{{data.totalPrice}}</p>
+
+    <h2 style="text-align:center">โปรดตรวจสอบให้แน่ใจก่อนการยืนยัน</h2>
+  </mat-card-content>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button (click)="save()" routerLink="/taxi-view" color="warn" type="submit">Save</a>
+  <a mat-raised-button (click)="cancel()" color="warn" routerLink="/taxi">Cancel</a>
+  </mat-card-actions>
+</mat-card>

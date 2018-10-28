@@ -1,0 +1,16 @@
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Convenience Goods</h1>
+      <img width="200"  src="src/image/convenience.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<h2 style="text-align:center"> LINE MAN </h2>
+<h4 style="text-align:center">ยืนยันการสร้าง</h4>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>ไม่ใช่</button>
+  <button mat-button (click)="save()"  cdkFocusInitial>ใช่</button>
+</mat-dialog-actions>

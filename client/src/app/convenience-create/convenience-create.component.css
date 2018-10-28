@@ -1,0 +1,10 @@
+mat-grid-tile {
+    background: orange;
+    color : #fff;
+}
+.example-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

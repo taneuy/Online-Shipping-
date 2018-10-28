@@ -1,0 +1,23 @@
+.grid {
+    background: orange;
+    color : #fff;
+}
+.example-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  a {
+    margin: 2px;
+  }
+
+
+

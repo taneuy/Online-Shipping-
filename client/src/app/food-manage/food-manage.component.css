@@ -1,0 +1,19 @@
+
+.grid {
+    /*background: #673ab7;*/
+    background: orange;
+    color : #fff;
+}
+
+table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    margin: 20px;
+}
+.menu {
+   background: AntiqueWhite ;
+      /*color : #fff;*/
+}

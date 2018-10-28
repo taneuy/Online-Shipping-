@@ -1,0 +1,49 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+      <a mat-stroked-button routerLink='/messenger-view'>View Messenger Order</a>
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+      <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Messenger Service</h1>
+      <img width="200"  src="src/image/messenger.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+  <mat-card-content style="text-align:left" >
+    <p hidden></p>
+    <h1 style="text-align:center">รายละเอียดการจัดส่ง</h1>
+    <h2>ราคาการจัดส่ง</h2>
+    <p>{{data.tp}} ฿</p>
+    <h2>บริการการจัดส่ง</h2>
+    <p>{{data.service}}</p>
+    <h2>เขตในการจัดส่ง</h2>
+    <p>{{data.area}}</p>
+    <h2>รายละเอียดผู้ส่ง</h2>
+    <p><b>ชื่อผู้ส่ง :</b> {{data.name}}</p>
+    <p><b>หมายเลขโทรศัพท์ของผู้ส่ง : </b>{{data.phone}}</p>
+    <p><b>ที่อยู่ผู้ส่ง :</b> {{data.address}}</p>
+    <h2>รายละเอียดผู้รับ</h2>
+    <p><b>ชื่อผู้รับ :</b> {{data.rn}}</p>
+    <p><b>หมายเลขโทรศัพท์ของผู้รับ :</b> {{data.rp}} </p>
+    <p><b>ที่อยู่ผู้รับ :</b> {{data.rl}}</p>
+    <h2>หมายเหตุ</h2>
+    <p><b>หมายเหตุ :</b> {{data.note}}</p>
+
+    <h2 style="text-align:center">โปรดตรวจสอบให้แน่ใจก่อนการยืนยัน</h2>
+  </mat-card-content>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button (click)="save()" routerLink="/messenger-view" color="warn" type="submit">Save</a>
+    <a mat-raised-button (click)="cancel()" color="warn" routerLink="/messenger-order">Cancel</a>
+  </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,57 @@
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Food Delivery</h1>
+      <img width="200"  src="src/image/food.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div style="text-align:center">
+  <form>
+    <mat-form-field>
+      <mat-select placeholder="Customer" [(ngModel)]="usernameSelect" name="username">
+        <mat-option *ngFor="let customer of customers" [value]="customer.name">
+          {{customer.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+
+
+<!--<button mat-button (click)="save()"  cdkFocusInitial>Yes</button>-->
+<mat-grid-list cols="4" rowHeight="4:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile [colspan] = "2">
+    <h2>Order List</h2>
+    <button style = "margin-left: 20px" mat-raised-button (click)="openDialog()" color="primary">Create New</button>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+<table mat-table [dataSource]="orders" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="no">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="customer">
+    <th mat-header-cell *matHeaderCellDef> Customer Name. </th>
+    <td mat-cell *matCellDef="let element"> {{element.adder.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="add">
+    <th mat-header-cell *matHeaderCellDef style = "width:20%"> Add Product.</th>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="manageTeam(element)">Add</button> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef style = "width:20%"> View Orders.</th>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="viewPlaylist(element)">View</button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+</table>

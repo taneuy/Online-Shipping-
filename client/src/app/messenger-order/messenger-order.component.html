@@ -1,0 +1,111 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+      <a mat-stroked-button routerLink='/messenger-view'>View Messenger Order</a>
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+      <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Messenger Service</h1>
+      <img width="200"  src="src/image/messenger.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+    <!-- <a mat-raised-button routerLink="/messenger-view" color="warn" >View Messenger Order History</a> -->
+  <mat-card-content style="text-align:center">
+    <form #messengerForm="ngForm">
+        
+      <h1 style="text-align:center">รายละเอียดการจัดส่ง</h1>
+      <p hidden>{{sum()}}</p>
+      <h2>฿ {{totalPrice}} </h2>
+      <h2>บริการการจัดส่ง</h2>
+      <mat-form-field appearance="fill" >
+        <mat-label><i class="material-icons">add_location</i> บริการการจัดส่ง</mat-label>
+        <mat-select required 
+                    [(ngModel)]="select.serviceSelect"
+                    [(ngModel)]="data.service"
+                    name="service" #service>
+          <mat-option *ngFor="let service of services" [value]="service.serviceId" (blur)="getServiceDetail()">
+            {{service.serviceType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br> 
+      <h2>เขตในการจัดส่ง</h2>
+      <mat-form-field appearance="fill" >
+        <mat-label><i class="material-icons">add_location</i> เขตในการจัดส่ง</mat-label>
+        <mat-select required
+                    [(ngModel)]="select.areaSelect"
+                    [(ngModel)]="data.area"
+                    name="area" #area>
+          <mat-option *ngFor="let area of areas" [value]="area.areaId" (blur)="getAreaDetail()">
+            {{area.areaType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br> 
+      <h2>รายละเอียดผู้ส่ง</h2>
+      <mat-form-field appearance="fill">
+        <mat-label><i class="material-icons">add_location</i> ชื่อผู้ส่ง </mat-label>
+        <mat-select required
+                    [(ngModel)]="select.usernameSelect"
+                    [(ngModel)]="data.name"
+                    name="customer" #customer>
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId" (blur)="getCustomerDetail()">
+            {{customer.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <h2>รายละเอียดผู้รับ</h2>
+      <mat-form-field appearance="outline">
+        <mat-label><i class="material-icons">person</i> ชื่อผู้รับ</mat-label>
+        <input matInput required placeholder="นายสมชาย ใจดี"
+               [(ngModel)]="receiverName"
+               [(ngModel)]="data.rn"
+               name="rn" #rn>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label><i class="material-icons">call</i> หมายเลขโทรศัพท์ของผู้รับ</mat-label>
+        <input matInput required placeholder="0823456789"
+               [(ngModel)]="receiverPhone"
+               [(ngModel)]="data.rp"
+               name="rp" #rp>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label><i class="material-icons">location_on</i> ที่อยู่ผู้รับ</mat-label>
+        <textarea matInput required placeholder="123/4 ซอย ถนน แขวง เขต กรุงเทพฯ 00000"
+                  [(ngModel)]="receiverLocation"
+                  [(ngModel)]="data.rl"
+                  name="rl" #rl>
+        </textarea>
+      </mat-form-field>
+      <br>
+    </form>
+    <form #messengerForm1="ngForm">
+      <h2>หมายเหตุ</h2>
+      <mat-form-field appearance="fill">
+        <mat-label><i class="material-icons">info</i> ระบุข้อมูลเพิ่มเติม</mat-label>
+        <textarea matInput
+                  [(ngModel)]="note"
+                  [(ngModel)]="data.note"
+                  name="note"></textarea>
+        <mat-hint>กรุณาระบุข้อมูลเพิ่มเติม เช่น ขนาด/น้ำหนักพัสดุ ระวังแตก จ่ายเช็ค วางบิล และอื่นๆ</mat-hint>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button (click)="SubmittedData()" [disabled] ="!messengerForm.form.valid"  color="warn" type="submit">Next</a>
+    <a mat-raised-button routerLink="/home" color="warn" >Cancel</a>
+  </mat-card-actions>
+
+</mat-card>

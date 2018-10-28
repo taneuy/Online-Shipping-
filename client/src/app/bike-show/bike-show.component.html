@@ -1,0 +1,39 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+    <a mat-stroked-button routerLink='/bike-view'>View Bike Order</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+    <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Bike Service</h1>
+      <img width="200"  src="src/image/bike.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+  <mat-card-content style="text-align:left" >
+    <p hidden></p>
+    <h1 style="text-align:center">รายละเอียดการเรียกวินมอเตอร์ไซค์</h1>
+    <p><b> Customer :</b> {{data.username}}</p>
+    <p><b> Area : </b>{{data.areas}}</p>
+    <p><b> Pick Up :</b> {{data.pickLocation}}</p>
+    <p><b> Drop Off :</b> {{data.dropLocation}}</p>
+    <p><b> Payment :</b> {{data.payments}} </p>
+    <h2>Total Price :</h2>
+    <p>{{data.totalPrice}}</p>
+
+    <h2 style="text-align:center">โปรดตรวจสอบให้แน่ใจก่อนการยืนยัน</h2>
+  </mat-card-content>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button (click)="save()"  routerLink="/bike-view" color="warn" type="submit">Save</a>
+    <a mat-raised-button (click)="cancel()" color="warn" routerLink="/bike-order">Cancel</a>
+  </mat-card-actions>
+</mat-card>

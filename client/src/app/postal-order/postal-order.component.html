@@ -1,0 +1,57 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+      <a mat-stroked-button routerLink='/postal-show'>View Postal Order</a>
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+      <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Postal Service</h1>
+      <img width="200"  src="src/image/postal.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+  <mat-card-content style="text-align:center">
+    <form>
+      <mat-form-field>
+        <mat-select placeholder="Name" [(ngModel)]="postalOrders.nameSelect" name="name">
+          <mat-option *ngFor="let customer of customers" [value]="customer.name">
+            {{customer.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <form>
+      <mat-form-field>
+        <mat-select placeholder="Which Type?" [(ngModel)]="postalOrders.categorySelect" name="category" >
+          <mat-option *ngFor="let postalCategory of postalCategories" [value]="postalCategory.category">
+            {{postalCategory.category}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <form>
+      <mat-form-field>
+        <mat-select placeholder="How many of box ?" [(ngModel)]="postalOrders.amountSelect" name="amount">
+          <mat-option *ngFor="let postalAmount of postalAmounts" [value]="postalAmount.box">
+            {{postalAmount.box}} packages
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button  (click)="save()" color="warn" type="submit" routerLink="/postal-show">Confirm</a>
+    <a mat-raised-button  (click)="cancel()" color="warn" routerLink="/home">Cancel</a>
+  </mat-card-actions>
+</mat-card>
+

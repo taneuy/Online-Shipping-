@@ -1,0 +1,54 @@
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Food Delivery</h1>
+      <img width="200"  src="src/image/food.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!--<P style="text-align:center">{{order.adder.name}}</P>-->
+<!--<p style="text-align:center">{{order.adder.phone}}</p>-->
+<!--<p style="text-align:center">{{order.adder.address}}</p>-->
+<!--<p style="text-align:center">{{order.adder.email}}</p>-->
+
+<!-- <p>{{order.listMenu.foodmenu.foodMenuPrice[0]}}</p> -->
+
+<!--<h1 style="text-align:center">Sum : {{data.sum}} Baht </h1>-->
+
+<table mat-table [dataSource]="order.listMenu" class="menu">
+
+  <ng-container matColumnDef="no">
+  <th mat-header-cell *matHeaderCellDef> No. </th>
+  <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+</ng-container>
+
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef> image </th>
+    < <td mat-cell *matCellDef="let element">
+    <iframe width="160" height="160"  [src]="imageURL(element.foodmenu.code)"></iframe>
+    </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element">{{element.foodmenu.foodMenuName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element">{{element.foodmenu.foodMenuPrice}} </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-card>
+  NAME &nbsp;&nbsp;:&nbsp;&nbsp; {{order.adder.name}} <br />
+  PHONE &nbsp;&nbsp; : &nbsp;&nbsp;{{order.adder.phone}} <br />
+  ADDRESS &nbsp;&nbsp; : &nbsp;&nbsp;{{order.adder.address}} <br />
+  PRICE : {{data.sum}} Baht
+</mat-card>

@@ -1,0 +1,56 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+      <a mat-stroked-button routerLink='/messenger-view'>View Messenger Order</a>
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+      <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Messenger Service</h1>
+      <img width="200"  src="src/image/messenger.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card>
+  <!-- <p>{{pageRefresh()}}</p> -->
+  <h2>ประวัติการใช้งานบริการ Messenger Service</h2>
+  <table >
+    <tr>
+      <th>OrderId</th>
+      <th>Service</th>
+      <th>Area</th>
+      <th>Total Price</th>
+      <th>Sender Name</th>
+      <th>Sender Phone</th>
+      <th>Sender Location</th>
+      <th>Receiver Name</th>
+      <th>Receiver Phone</th>
+      <th>Receiver Address</th>
+      <th>Note</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{order.orderId}}</td>
+      <td>{{order.paidService.serviceType}}</td>
+      <td>{{order.paidArea.areaType}}</td>
+      <td>{{order.totalPrice}}</td>
+      <td>{{order.paidCustomer.name}}</td>
+      <td>{{order.paidCustomer.phone}}</td>
+      <td>{{order.paidCustomer.address}}</td>
+      <td>{{order.receiverName}}</td>
+      <td>{{order.receiverPhone}}</td>
+      <td>{{order.receiverAddress}}</td>
+      <td>{{order.note}}</td>
+    </tr>
+  </table>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button routerLink="/messenger" color="warn" >Back</a>
+  </mat-card-actions>
+
+</mat-card>

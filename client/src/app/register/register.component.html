@@ -1,0 +1,66 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <!-- <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a> -->
+      <span class="example-spacer"></span>
+      <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Login</a>
+      <a mat-stroked-button routerLink='/register'>Register</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-grid-list cols="1" rowHeight="5:1">
+    <mat-grid-tile>
+      <div style = "text-align:center">
+        <h1>Register</h1>
+        <img width="200"  src="src/image/route2.png">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <mat-card class="example-card">
+      
+    <mat-card-content style="text-align:center">
+      <form #registerForm="ngForm">
+      <mat-form-field>
+        <input matInput required placeholder="Username" 
+        [(ngModel)]="customer.username"
+        name="username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput required placeholder="Password"  
+        [(ngModel)]="customer.password"
+        name="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput required placeholder="Name" 
+        [(ngModel)]="customer.name"
+        name="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput required placeholder="Phone" 
+        [(ngModel)]="customer.phone"
+        name="phone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput required placeholder="Email" 
+        [(ngModel)]="customer.email"
+        name="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput required placeholder="Address"  
+        [(ngModel)]="customer.address"
+        name="address">
+      </mat-form-field>
+    </form>
+
+    </mat-card-content>
+    
+    <mat-card-actions style="text-align:right">
+      <a mat-raised-button (click)="create()" routerLink="/login" [disabled] ="!registerForm.form.valid" color="warn" type="submit">Create</a>
+    </mat-card-actions>
+  
+  </mat-card>

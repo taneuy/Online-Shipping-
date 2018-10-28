@@ -1,0 +1,54 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+    <a mat-stroked-button routerLink='/bike-view'>View Bike Order</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+    <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Bike Service</h1>
+      <img width="200"  src="src/image/bike.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card>
+  <!-- <p>{{pageRefresh()}}</p> -->
+  <h2>*ส่งรายละเอียดการเรียกวินมอเตอร์ไซค์ไปที่ E-mail แล้ว*</h2>
+
+  <h2>ประวัติการใช้งานบริการ Bike Service</h2>
+  <table >
+    <tr>
+      <th>OrderId</th>
+      <th>Customer</th>
+      <th>Area</th>
+      <th>PickLocation</th>
+      <th>DropLocation</th>
+      <th>PaymentType</th>
+      <th>TotalPrice</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{order.orderId}}</td>
+      <td>{{order.customer.name}}</td>
+      <td>{{order.bikeArea.areaType}}</td>
+      <td>{{order.pickLocation}}</td>
+      <td>{{order.dropLocation}}</td>
+      <td>{{order.bikePayment.paymentType}}</td>
+      <td>{{order.totalPrice}}</td>
+    </tr>
+  </table>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button routerLink="/home" color="warn" >Back</a>
+  </mat-card-actions>
+
+
+
+</mat-card>
+
+<p>{{order.pickLocation1}}</p>

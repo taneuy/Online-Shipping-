@@ -1,0 +1,51 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+    <a mat-stroked-button routerLink='/taxi-view'>View Taxi Order</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+    <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Taxi Service</h1>
+      <img width="200"  src="src/image/taxi.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card>
+  
+  <h2>ประวัติการใช้งานบริการ Taxi Service</h2>
+  <table >
+    <tr>
+      <th>OrderId</th>
+      <th>Customer</th>
+      <th>Area</th>
+      <th>Location1</th>
+      <th>Location2</th>
+      <th>carType</th>
+      <th>Note</th>
+      <th>TotalPrice</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td>{{order.customer.name}}</td>
+      <td>{{order.taxiArea.areaType}}</td>
+      <td>{{order.location1}}</td>
+      <td>{{order.location2}}</td>
+      <th>{{order.taxicarService.carType}}</th>
+      <td>{{order.note}}</td>
+      <td>{{order.totalPrice}}</td>
+    </tr>
+  </table>
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button routerLink="/home" color="warn" >Back</a>
+  </mat-card-actions>
+</mat-card>
+
+<p>{{order.LocationOne}}</p>

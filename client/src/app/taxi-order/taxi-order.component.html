@@ -1,0 +1,107 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row>
+    <a mat-raised-button routerLink='/home'><i class="material-icons">home</i>Home</a>
+    <a mat-stroked-button routerLink='/taxi-view'>View Taxi Order</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button routerLink="/login"><i class="material-icons">exit_to_app</i>Logout</a>
+    <!-- <a mat-stroked-button routerLink='/register'>Register</a> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="5:1">
+  <mat-grid-tile>
+    <div style = "text-align:center">
+      <h1>Taxi Service</h1>
+      <img width="200"  src="src/image/taxi.png">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card">
+  <mat-card-content style="text-align:center">
+    <h2 style="text-align:center">รายละเอียด</h2>
+    
+    <mat-form-field appearance="fill">
+      <mat-label><i class="material-icons">add_location</i> ชื่อผู้ส่ง </mat-label>
+      <mat-select required
+        [(ngModel)]="select.usernameSelect"
+        [(ngModel)]="data.username"
+        
+        name="username" #username>
+        <mat-option *ngFor="let customer of customers" [value]="customer.customerId" (blur)="getCustomerDetail()">
+          {{customer.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label><i class="material-icons">add_location</i> เขตพื้นที่ </mat-label>
+      <mat-select required 
+      [(ngModel)]="select.areaSelect" 
+      [(ngModel)]="areaPrice" 
+      [(ngModel)]="date.areas"
+      
+      name="area" #area>
+        <mat-option *ngFor="let area of areas" [value]="area.areaId" (blur)="getAreaDetail()">
+          {{area.areaType}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label><i class="material-icons">person</i> จุดเริ่มต้น</mat-label>
+      <input matInput 
+      required 
+      placeholder="..." 
+      [(ngModel)]="Location1" 
+      [(ngModel)]="data.Location1"
+      name="Locationone" #Locationone>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label><i class="material-icons">person</i> จุดปลายทาง</mat-label>
+      <input matInput 
+      required 
+      placeholder="..." 
+      [(ngModel)]="Location2" 
+      [(ngModel)]="data.Location2"
+      name="Locationtwo" #Locationtwo>
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label><i class="material-icons">add_location</i> ที่นั่งรถ </mat-label>
+      <mat-select required 
+      placeholder="..." 
+      [(ngModel)]="select.carSelect" 
+      [(ngModel)]="carPrice" 
+      [(ngModel)]="data.carservices"
+      
+      name="carservices" #carservice>
+        <mat-option *ngFor="let car of carservices" [value]="car.serviceId" (blur)="getCarServiceDetail()">
+          {{car.carType}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h2>หมายเหตุ</h2>
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label><i class="material-icons">info</i> ระบุข้อมูลเพิ่มเติม</mat-label>
+        <textarea matInput 
+        [(ngModel)]="note" 
+        [(ngModel)]="data.note"
+        name="note">
+      </textarea>
+        <mat-hint>กรุณาระบุข้อมูลเพิ่มเติม เช่น พื้นที่ใกล้เคียง ป้ายรถเมล์ และอื่นๆ</mat-hint>
+      </mat-form-field>
+  </mat-card-content>
+  
+
+  <mat-card-actions style="text-align:right">
+    <a mat-raised-button (click)="SubmittedData()"  color="warn" type="submit">Next</a>
+    <a mat-raised-button routerLink="/home" color="warn" >Cancel</a>
+  </mat-card-actions>
+</mat-card>
